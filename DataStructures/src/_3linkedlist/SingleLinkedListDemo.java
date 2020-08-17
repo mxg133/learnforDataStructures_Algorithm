@@ -139,7 +139,6 @@ public class SingleLinkedListDemo {
 
 	//方法：获取到单链表的节点的个数(如果是带头结点的链表，需求不统计头节点)
 	/**
-	 *
 	 * @param head 链表的头节点
 	 * @return 返回的就是有效节点的个数
 	 */
@@ -204,7 +203,7 @@ class SingleLinkedList {
 			if(temp.next == null) {//说明temp已经在链表的最后
 				break; //
 			}
-			if(temp.next.no > heroNode.no) { //位置找到，就在temp的后面插入
+			if(heroNode.no < temp.next.no) { //位置找到，就在temp的后面插入
 				break;
 			} else if (temp.next.no == heroNode.no) {//说明希望添加的heroNode的编号已然存在
 
@@ -218,7 +217,7 @@ class SingleLinkedList {
 			System.out.printf("准备插入的英雄的编号 %d 已经存在了, 不能加入\n", heroNode.no);
 		} else {
 			//插入到链表中, temp的后面
-			heroNode.next = temp.next;
+			heroNode.next = temp.next;//指针下移 原来的指向新来的后面
 			temp.next = heroNode;
 		}
 	}
@@ -268,7 +267,7 @@ class SingleLinkedList {
 				break;
 			}
 			if(temp.next.no == no) {
-				//找到的待删除节点的前一个节点temp
+				//找到的待删除节点的【前】一个节点temp
 				flag = true;
 				break;
 			}
@@ -277,7 +276,7 @@ class SingleLinkedList {
 		//判断flag
 		if(flag) { //找到
 			//可以删除
-			temp.next = temp.next.next;
+			temp.next = temp.next.next;//JVM回收temp.next
 		}else {
 			System.out.printf("要删除的 %d 节点不存在\n", no);
 		}

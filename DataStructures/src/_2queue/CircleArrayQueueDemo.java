@@ -115,7 +115,6 @@ class CircleArray {
 		int value = arr[front];
 		front = (front + 1) % maxSize;
 		return value;
-
 	}
 
 	// 显示队列的所有数据
