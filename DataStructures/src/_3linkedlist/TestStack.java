@@ -1,21 +1,21 @@
-package linkedlist;
+package _3linkedlist;
 
 import java.util.Stack;
 
-//��ʾջStack�Ļ���ʹ��
+//演示栈Stack的基本使用
 public class TestStack {
 
 	public static void main(String[] args) {
 		Stack<String> stack = new Stack();
-		// ��ջ
+		// 入栈
 		stack.add("jack");
 		stack.add("tom");
 		stack.add("smith");
 
-		// ��ջ
+		// 出栈
 		// smith, tom , jack
 		while (stack.size() > 0) {
-			System.out.println(stack.pop());//pop���ǽ�ջ��������ȡ��
+			System.out.println(stack.pop());//pop就是将栈顶的数据取出
 		}
 	}
 
