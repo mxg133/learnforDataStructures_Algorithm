@@ -105,7 +105,7 @@ public class SingleLinkedListDemo {
 			reverseHead.next = cur; //将cur 连接到新的链表上
 			cur = next;//让cur后移
 		}
-		//将head.next 指向 reverseHead.next , 实现单链表的反转
+		//将head.next 指向 reverseHead.next ,实现单链表的反转
 		head.next = reverseHead.next;
 	}
 
@@ -158,6 +158,7 @@ public class SingleLinkedListDemo {
 
 }
 
+//************************************************************
 
 //定义SingleLinkedList 管理我们的英雄
 class SingleLinkedList {
@@ -203,7 +204,7 @@ class SingleLinkedList {
 			if(temp.next == null) {//说明temp已经在链表的最后
 				break; //
 			}
-			if(heroNode.no < temp.next.no) { //位置找到，就在temp的后面插入
+			if(temp.next.no > heroNode.no) { //位置找到，就在temp的后面插入
 				break;
 			} else if (temp.next.no == heroNode.no) {//说明希望添加的heroNode的编号已然存在
 
