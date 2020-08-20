@@ -1,5 +1,7 @@
 package _3linkedlist.my;
 
+import java.util.Stack;
+
 /**
  * @author 孟享广
  * @date 2020-08-17 12:12 下午
@@ -29,7 +31,30 @@ public class SingleLinkedListDemo {
 
         reversrtList(linkedList.getHead());
         linkedList.list();
+
+
+        System.out.println(" 、逆序打印");
+        reversePrint(linkedList.getHead());
     }
+
+    public static void reversePrint(HeroNode head){
+        if (head.next == null){
+            System.out.println("空 不能打印 反 ");
+        }
+        Stack<HeroNode> stack = new Stack<>();
+        HeroNode cur = head.next;
+        while (cur != null) {
+            stack.push(cur);
+            cur = cur.next;
+        }
+
+        while (stack.size() > 0) {
+            System.out.println(
+                    stack.pop()
+            );
+        }
+    }
+
 
     public static int grtLenth(HeroNode head){
         if (head.next == null){
