@@ -65,7 +65,6 @@ class CircleSingleLinkedList {
 
 	// 根据用户的输入，计算出小孩出圈的顺序
 	/**
-	 *
 	 * @param startNo
 	 *            表示从第几个小孩开始数数
 	 * @param countNum
