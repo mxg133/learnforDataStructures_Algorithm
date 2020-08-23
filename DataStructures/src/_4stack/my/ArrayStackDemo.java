@@ -9,7 +9,7 @@ import java.util.Scanner;
  */
 public class ArrayStackDemo {
     public static void main(String[] args) {
-        ArrayStack stack = new ArrayStack(4);
+        ArrayStack2 stack = new ArrayStack2(4);
         String key = "";
         boolean loop = true;
         Scanner scanner = new Scanner(System.in);
