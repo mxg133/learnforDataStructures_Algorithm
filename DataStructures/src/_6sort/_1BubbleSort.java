@@ -3,7 +3,7 @@ package _6sort;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class BubbleSort {
+public class _1BubbleSort {
 
 	public static void main(String[] args) {
 //		int arr[] = {3, 9, -1, 10, 20};

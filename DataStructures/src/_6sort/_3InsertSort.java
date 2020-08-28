@@ -3,7 +3,7 @@ package _6sort;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class InsertSort {
+public class _3InsertSort {
 
 	public static void main(String[] args) {
 		//int[] arr = {101, 34, 119, 1, -1, 89}; 

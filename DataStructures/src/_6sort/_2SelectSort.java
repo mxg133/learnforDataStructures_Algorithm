@@ -3,7 +3,7 @@ package _6sort;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 //选择排序
-public class SelectSort {
+public class _2SelectSort {
 
 	public static void main(String[] args) {
 		//int [] arr = {101, 34, 119, 1, -1, 90, 123};
