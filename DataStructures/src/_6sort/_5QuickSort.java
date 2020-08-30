@@ -3,7 +3,7 @@ package _6sort;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class QuickSort {
+public class _5QuickSort {
 
 	public static void main(String[] args) {
 		//int[] arr = {-9,78,0,23,-567,70, -1,900, 4561};
