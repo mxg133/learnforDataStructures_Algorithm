@@ -3,7 +3,7 @@ package _6sort;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class MergetSort {
+public class _6MergetSort {
 
 	public static void main(String[] args) {
 		//int arr[] = { 8, 4, 5, 7, 1, 3, 6, 2 }; //
