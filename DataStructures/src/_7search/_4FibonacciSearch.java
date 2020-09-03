@@ -2,13 +2,13 @@ package _7search;
 
 import java.util.Arrays;
 
-public class FibonacciSearch {
+public class _4FibonacciSearch {
 
 	public static int maxSize = 20;
 	public static void main(String[] args) {
 		int [] arr = {1,8, 10, 89, 1000, 1234};
 
-		System.out.println("index=" + fibSearch(arr, 189));// 0
+		System.out.println("index=" + fibSearch(arr, 89));// 0
 
 	}
 
@@ -29,10 +29,10 @@ public class FibonacciSearch {
 	/**
 	 *
 	 * @param a  数组
-	 * @param key 我们需要查找的关键码(值)
+	 * @param findVal 我们需要查找的关键码(值)
 	 * @return 返回对应的下标，如果没有-1
 	 */
-	public static int fibSearch(int[] a, int key) {
+	public static int fibSearch(int[] a, int findVal) {
 		int low = 0;
 		int high = a.length - 1;
 		int k = 0; //表示斐波那契分割数值的下标
@@ -55,7 +55,7 @@ public class FibonacciSearch {
 		// 使用while来循环处理，找到我们的数 key
 		while (low <= high) { // 只要这个条件满足，就可以找
 			mid = low + f[k - 1] - 1;
-			if(key < temp[mid]) { //我们应该继续向数组的前面查找(左边)
+			if(findVal < temp[mid]) { //我们应该继续向数组的前面查找(左边)
 				high = mid - 1;
 				//为甚是 k--
 				//说明
@@ -65,7 +65,7 @@ public class FibonacciSearch {
 				//即 在 f[k-1] 的前面继续查找 k--
 				//即下次循环 mid = f[k-1-1]-1
 				k--;
-			} else if ( key > temp[mid]) { // 我们应该继续向数组的后面查找(右边)
+			} else if ( findVal > temp[mid]) { // 我们应该继续向数组的后面查找(右边)
 				low = mid + 1;
 				//为什么是k -=2
 				//说明
