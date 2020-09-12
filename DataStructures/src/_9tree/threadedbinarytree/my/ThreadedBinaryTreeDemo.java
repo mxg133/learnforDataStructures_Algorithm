@@ -3,7 +3,7 @@ package _9tree.threadedbinarytree.my;
 /**
  * @author 孟享广
  * @date 2020-09-12 10:47 上午
- * @description
+ * @description no
  */
 public class ThreadedBinaryTreeDemo {
     public static void main(String[] args) {
@@ -31,6 +31,9 @@ public class ThreadedBinaryTreeDemo {
         System.out.println(leftNode);
         HeroNode node5Right = node5.getRight();
         System.out.println(node5Right);
+
+        System.out.println("线索化遍历······");
+        threadBinaryTree.threadedList();
     }
 }
 
@@ -124,6 +127,26 @@ class ThreadBinaryTree {
             pre.setRightType(1);
         }
         pre = node;
+//        threadedNodes(node.getRight());
+    }
+
+    //遍历线索二叉树
+    public void threadedList() {
+        HeroNode node = root;
+        while (node != null) {
+            while (node.getLeftType() == 0) {
+                node = node.getLeft();
+            }
+
+            System.out.println(node);
+
+            while (node.getRightType() == 1) {
+                node = node.getRight();
+                System.out.println(node);
+            }
+            //替换
+            node = node.getRight();
+        }
     }
 }
 
