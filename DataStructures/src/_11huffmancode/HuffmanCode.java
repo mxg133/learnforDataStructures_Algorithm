@@ -16,19 +16,19 @@ public class HuffmanCode {
 
 	public static void main(String[] args) {
 
-		//测试压缩文件
-//		String srcFile = "d://Uninstall.xml";
-//		String dstFile = "d://Uninstall.zip";
-//
-//		zipFile(srcFile, dstFile);
-//		System.out.println("压缩文件ok~~");
+//		测试压缩文件
+		String srcFile = ".。/src.jpg";
+		String dstFile = ".。/dst.zip";
+
+		zipFile(srcFile, dstFile);
+		System.out.println("压缩文件ok~~");
 
 
-		//测试解压文件
-		String zipFile = "d://Uninstall.zip";
-		String dstFile = "d://Uninstall2.xml";
-		unZipFile(zipFile, dstFile);
-		System.out.println("解压成功!");
+//		//测试解压文件
+//		String zipFile = "d://Uninstall.zip";
+//		String dstFile = "d://Uninstall2.xml";
+//		unZipFile(zipFile, dstFile);
+//		System.out.println("解压成功!");
 
 		/*
 		String content = "i like like like java do you like a java";
@@ -107,7 +107,6 @@ public class HuffmanCode {
 			// TODO: handle exception
 			System.out.println(e.getMessage());
 		} finally {
-
 			try {
 				os.close();
 				ois.close();
