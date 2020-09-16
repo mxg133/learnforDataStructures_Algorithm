@@ -8,8 +8,8 @@ import java.util.regex.Pattern;
 
 public class ReversePolishMultiCalc {
 
-	 /**
-     * ƥ�� + - * / ( ) �����
+    /**
+     * 匹配 + - * / ( ) 运算符
      */
     static final String SYMBOL = "\\+|-|\\*|/|\\(|\\)";
 
@@ -21,16 +21,16 @@ public class ReversePolishMultiCalc {
     static final String DIVISION = "/";
 
     /**
-     * �Ӝp + -
+     * 加減 + -
      */
     static final int LEVEL_01 = 1;
     /**
-     * �˳� * /
+     * 乘除 * /
      */
     static final int LEVEL_02 = 2;
 
     /**
-     * ����
+     * 括号
      */
     static final int LEVEL_HIGH = Integer.MAX_VALUE;
 
@@ -39,17 +39,17 @@ public class ReversePolishMultiCalc {
     static List<String> data = Collections.synchronizedList(new ArrayList<String>());
 
     /**
-     * ȥ�����пհ׷�
+     * 去除所有空白符
      * @param s
      * @return
      */
     public static String replaceAllBlank(String s ){
-        // \\s+ ƥ���κοհ��ַ��������ո��Ʊ������ҳ���ȵ�, �ȼ���[ \f\n\r\t\v]
+        // \\s+ 匹配任何空白字符，包括空格、制表符、换页符等等, 等价于[ \f\n\r\t\v]
         return s.replaceAll("\\s+","");
     }
 
     /**
-     * �ж��ǲ������� int double long float
+     * 判断是不是数字 int double long float
      * @param s
      * @return
      */
@@ -59,7 +59,7 @@ public class ReversePolishMultiCalc {
     }
 
     /**
-     * �ж��ǲ��������
+     * 判断是不是运算符
      * @param s
      * @return
      */
@@ -68,7 +68,7 @@ public class ReversePolishMultiCalc {
     }
 
     /**
-     * ƥ������ȼ�
+     * 匹配运算等级
      * @param s
      * @return
      */
@@ -82,7 +82,7 @@ public class ReversePolishMultiCalc {
     }
 
     /**
-     * ƥ��
+     * 匹配
      * @param s
      * @throws Exception
      */
@@ -98,12 +98,12 @@ public class ReversePolishMultiCalc {
         for (int i = 0; i < s.length(); i++) {
             if(isSymbol(s.charAt(i)+"")){
                 each = s.charAt(i)+"";
-                //ջΪ�գ�(������������ ���������ȼ�����ջ�����ȼ� && ���������ȼ�����( )�����ȼ� ���� ) ����ֱ����ջ
+                //栈为空，(操作符，或者 操作符优先级大于栈顶优先级 && 操作符优先级不是( )的优先级 及是 ) 不能直接入栈
                 if(stack.isEmpty() || LEFT.equals(each)
                         || ((calcLevel(each) > calcLevel(stack.peek())) && calcLevel(each) < LEVEL_HIGH)){
                     stack.push(each);
                 }else if( !stack.isEmpty() && calcLevel(each) <= calcLevel(stack.peek())){
-                    //ջ�ǿգ����������ȼ�С�ڵ���ջ�����ȼ�ʱ��ջ���У�ֱ��ջΪ�գ�����������(������������ջ
+                    //栈非空，操作符优先级小于等于栈顶优先级时出栈入列，直到栈为空，或者遇到了(，最后操作符入栈
                     while (!stack.isEmpty() && calcLevel(each) <= calcLevel(stack.peek()) ){
                         if(calcLevel(stack.peek()) == LEVEL_HIGH){
                             break;
@@ -112,7 +112,7 @@ public class ReversePolishMultiCalc {
                     }
                     stack.push(each);
                 }else if(RIGHT.equals(each)){
-                    // ) �����������γ�ջ����ֱ����ջ���������˵�һ��)����������ʱ)��ջ
+                    // ) 操作符，依次出栈入列直到空栈或者遇到了第一个)操作符，此时)出栈
                     while (!stack.isEmpty() && LEVEL_HIGH >= calcLevel(stack.peek())){
                         if(LEVEL_HIGH == calcLevel(stack.peek())){
                             stack.pop();
@@ -121,7 +121,7 @@ public class ReversePolishMultiCalc {
                         data.add(stack.pop());
                     }
                 }
-                start = i ;    //ǰһ���������λ��
+                start = i ;    //前一个运算符的位置
             }else if( i == s.length()-1 || isSymbol(s.charAt(i+1)+"") ){
                 each = start == 0 ? s.substring(start,i+1) : s.substring(start+1,i+1);
                 if(isNumber(each)) {
@@ -131,7 +131,7 @@ public class ReversePolishMultiCalc {
                 throw new RuntimeException("data not match number");
             }
         }
-        //���ջ�ﻹ��Ԫ�أ���ʱԪ����Ҫ���γ�ջ���У���������ջ��ʣ��ջ��Ϊ/��ջ��Ϊ+��Ӧ�����γ�ջ���У�����ֱ�ӷ�ת����stack ��ӵ�����
+        //如果栈里还有元素，此时元素需要依次出栈入列，可以想象栈里剩下栈顶为/，栈底为+，应该依次出栈入列，可以直接翻转整个stack 添加到队列
         Collections.reverse(stack);
         data.addAll(new ArrayList<>(stack));
 
@@ -140,7 +140,7 @@ public class ReversePolishMultiCalc {
     }
 
     /**
-     * ������
+     * 算出结果
      * @param list
      * @return
      */
@@ -171,7 +171,7 @@ public class ReversePolishMultiCalc {
     }
 
     /**
-     * ����
+     * 运算
      * @param s1
      * @param s2
      * @param symbol
