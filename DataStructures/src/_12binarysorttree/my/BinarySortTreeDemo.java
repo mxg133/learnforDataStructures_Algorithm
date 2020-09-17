@@ -21,7 +21,7 @@ public class BinarySortTreeDemo {
 class BinarySortTree {
     private Node root;
 
-
+    //添加 （增）
     public void add(Node node) {
         if (root == null) {
             root = node;
@@ -30,6 +30,7 @@ class BinarySortTree {
         }
     }
 
+    //遍历
     public void infixOrder() {
         if (root != null) {
             root.infixOrder();
@@ -72,6 +73,7 @@ class Node {
         this.right = right;
     }
 
+    //添加 （增）
     public void add(Node node) {
         if (node == null) {
             return;
@@ -91,6 +93,7 @@ class Node {
         }
     }
 
+    //遍历
     public void infixOrder() {
         if (this.left != null) {
             this.left.infixOrder();
