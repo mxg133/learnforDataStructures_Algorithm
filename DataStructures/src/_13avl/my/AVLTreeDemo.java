@@ -8,7 +8,8 @@ package _13avl.my;
 public class AVLTreeDemo {
     public static void main(String[] args) {
 //        int[] arr = {4, 3, 6, 5, 7, 8};
-        int[] arr = { 10, 12, 8, 9, 7, 6 };
+//        int[] arr = { 10, 12, 8, 9, 7, 6 };
+        int[] arr = { 10, 11, 7, 6, 8, 9 };
         AVLTree avlTree = new AVLTree();
         for (int i = 0; i < arr.length; i++) {
             avlTree.add(new Node(arr[i]));
@@ -196,12 +197,24 @@ class Node {
                 this.right.add(node);
             }
         }
+
         if ((rightHeight() - leftHeight()) > 1) {
-            leftRotate();
+            if (right != null && right.rightHeight() < right.leftHeight()) {
+                right.rightRotate();
+                leftRotate();
+            }else {
+                leftRotate();
+            }
+            return;
         }
 
         if ((leftHeight() - rightHeight()) > 1) {
-            rightRotate();
+            if (left != null && left.leftHeight() < left.rightHeight()) {
+                left.leftRotate();
+                rightRotate();
+            }else {
+                rightRotate();
+            }
         }
     }
 
