@@ -7,7 +7,7 @@ package _12binarysorttree.my;
  */
 public class BinarySortTreeDemo {
     public static void main(String[] args) {
-        int[] arr = {7, 3, 10, 12, 5, 1, 9, 0};
+        int[] arr = {7, 3, 10, 12, 5, 1, 9, 2};
         binarySortTree binarySortTree = new binarySortTree();
 
         for (int i = 0; i < arr.length; i++) {
@@ -16,7 +16,15 @@ public class BinarySortTreeDemo {
 
         binarySortTree.infixorder();
         System.out.println("情况一：删除叶子结点");
+        binarySortTree.delNode(2);
+        binarySortTree.delNode(5);
+        binarySortTree.delNode(9);
+        binarySortTree.delNode(12);
         binarySortTree.delNode(7);
+        binarySortTree.delNode(3);
+        binarySortTree.delNode(10);
+//        binarySortTree.delNode(1);
+
         binarySortTree.infixorder();
     }
 }
@@ -96,17 +104,25 @@ class binarySortTree {
                 //情况二：只有一颗子树
                 //只有左子结点
                 if (targetNode.left != null) {
-                    if (parent.left.value == value) {
-                        parent.left = targetNode.left;
-                    } else {
-                        parent.right = targetNode.left;
+                    if (parent != null) {
+                        if (parent.left.value == value) {
+                            parent.left = targetNode.left;
+                        } else {
+                            parent.right = targetNode.left;
+                        }
+                    }else {
+                        root = parent.left;
                     }
                 }else {
-                    //只有右子结点
-                    if (parent.left.value == value) {
-                        parent.left = targetNode.right;
+                    if (parent != null) {
+                        //只有右子结点
+                        if (parent.left.value == value) {
+                            parent.left = targetNode.right;
+                        } else {
+                            parent.right = targetNode.right;
+                        }
                     }else {
-                        parent.right = targetNode.right;
+                        root = parent.right;
                     }
                 }
             }
