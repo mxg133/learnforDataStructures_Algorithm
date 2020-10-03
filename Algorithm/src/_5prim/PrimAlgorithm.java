@@ -1,4 +1,4 @@
-package prim;
+package _5prim;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package kruskal;
+package _6kruskal;
 
 import java.util.Arrays;
 
