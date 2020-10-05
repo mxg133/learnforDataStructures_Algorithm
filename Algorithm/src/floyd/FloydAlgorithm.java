@@ -1,4 +1,4 @@
-package _8floyd;
+package floyd;
 
 import java.util.Arrays;
 
