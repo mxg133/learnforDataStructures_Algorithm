@@ -1,4 +1,4 @@
-package horse;
+package _10horse;
 
 import java.awt.Point;
 import java.util.ArrayList;

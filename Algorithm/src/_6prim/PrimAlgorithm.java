@@ -1,4 +1,4 @@
-package prim;
+package _6prim;
 
 import java.util.Arrays;
 
@@ -16,7 +16,8 @@ public class PrimAlgorithm {
 				{10000,9,10000,10000,10000,4,10000},
 				{10000,10000,8,10000,10000,5,4},
 				{10000,10000,10000,4,5,10000,6},
-				{2,3,10000,10000,4,6,10000},};
+				{2,3,10000,10000,4,6,10000}
+		};
 
 		//创建MGraph对象
 		MGraph graph = new MGraph(verxs);
