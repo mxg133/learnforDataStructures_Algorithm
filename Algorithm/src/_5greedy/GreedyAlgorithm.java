@@ -1,8 +1,4 @@
-package greedy;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
+package _5greedy;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -96,9 +92,6 @@ public class GreedyAlgorithm {
 		}
 
 		System.out.println("得到的选择结果是" + selects);//[K1,K2,K3,K5]
-
-
-
 	}
 
 }
