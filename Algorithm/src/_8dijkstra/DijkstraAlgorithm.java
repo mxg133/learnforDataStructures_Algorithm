@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /**
  * 计算最短路径
- * A - B 的最短路径
+ * A(出发结点) - B/C/D··· 的最短路径
  * 比如两个地铁站之间的路线选择问题
  *
  * 底层用的是广度优先搜索算法
@@ -27,6 +27,7 @@ public class DijkstraAlgorithm {
 		//测试, 看看图的邻接矩阵是否ok
 		graph.showGraph();
 		//测试迪杰斯特拉算法
+		//出发结点：?到各个结点的最短距离
 		graph.dsj(2);//C
 		graph.showDijkstra();
 	}
@@ -167,35 +168,36 @@ class VisitedVertex {
 	//即将三个数组的情况输出
 	public void show() {
 
-		System.out.println("==========================");
+		System.out.println("=========DijkstraAlgorithm=========");
 		//输出already_arr
 		for(int i : already_arr) {
 			System.out.print(i + " ");
 		}
 		System.out.println();
+
 		//输出pre_visited
 		for(int i : pre_visited) {
 			System.out.print(i + " ");
 		}
 		System.out.println();
+
 		//输出dis
 		for(int i : dis) {
 			System.out.print(i + " ");
 		}
 		System.out.println();
+
 		//为了好看最后的最短距离，我们处理
-		char[] vertex = { 'A', 'B', 'C', 'D', 'E', 'F', 'G' };
+		char[] vertex = { 'A', 'B', 'C', 'D', 'E', 'F', 'G'};
 		int count = 0;
 		for (int i : dis) {
 			if (i != 65535) {
-				System.out.print(vertex[count] + "("+i+") ");
+				System.out.print(vertex[count] + "(" + i + ") ");
 			} else {
 				System.out.println("N ");
 			}
 			count++;
 		}
 		System.out.println();
-
 	}
-
 }
