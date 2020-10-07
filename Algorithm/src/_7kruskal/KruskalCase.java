@@ -2,6 +2,11 @@ package _7kruskal;
 
 import java.util.Arrays;
 
+/**
+ * 用于连接所有结点的最短路径问题
+ * 最小生成树
+ * 比如 求连接7个城市的高速公路修建问题
+ */
 public class KruskalCase {
 	public static void main(String[] args) {
 		char[] vertexs = {'A', 'B', 'C', 'D', 'E', 'F', 'G'};
