@@ -4,8 +4,12 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Comparator;
 
+/**
+ * 骑士周游问题/马踏棋盘
+ *
+ * 已经优化，通过sort()
+ */
 public class HorseChessboard {
-
 	private static int X; // 棋盘的列数
 	private static int Y; // 棋盘的行数
 	//创建一个数组，标记棋盘的各个位置是否被访问过
@@ -139,7 +143,6 @@ public class HorseChessboard {
 					return 1;
 				}
 			}
-
 		});
 	}
 }
