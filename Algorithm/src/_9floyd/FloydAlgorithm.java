@@ -2,21 +2,31 @@ package _9floyd;
 
 import java.util.Arrays;
 
+/**
+ * 佛洛伊德算法
+ * 计算各个 结点 之间的 最短路径
+ * 每个结点 都是 出发（首）结点
+ *
+ * 相当于 迪杰斯特拉算法 的加强版 完全版
+ *
+	 弗洛伊德算法wS迪杰斯特拉算法:
+	 迪杰斯特拉算法通过选定的被访问顶点,求出从出发访问顶点到其他顶点的最短路径;
+	 弗洛伊德算法中每一个顶点都是出发访问点,所以需要将每一个项点看做被访问顶点,求出从每一个顶点到其他顶点的最短路径
+ */
 public class FloydAlgorithm {
-
 	public static void main(String[] args) {
 		// 测试看看图是否创建成功
 		char[] vertex = { 'A', 'B', 'C', 'D', 'E', 'F', 'G' };
 		//创建邻接矩阵
 		int[][] matrix = new int[vertex.length][vertex.length];
 		final int N = 65535;
-		matrix[0] = new int[] { 0, 5, 7, N, N, N, 2 };
-		matrix[1] = new int[] { 5, 0, N, 9, N, N, 3 };
-		matrix[2] = new int[] { 7, N, 0, N, 8, N, N };
-		matrix[3] = new int[] { N, 9, N, 0, N, 4, N };
-		matrix[4] = new int[] { N, N, 8, N, 0, 5, 4 };
-		matrix[5] = new int[] { N, N, N, 4, 5, 0, 6 };
-		matrix[6] = new int[] { 2, 3, N, N, 4, 6, 0 };
+		matrix[0] = new int[] {0, 5, 7, N, N, N, 2};
+		matrix[1] = new int[] {5, 0, N, 9, N, N, 3};
+		matrix[2] = new int[] {7, N, 0, N, 8, N, N};
+		matrix[3] = new int[] {N, 9, N, 0, N, 4, N};
+		matrix[4] = new int[] {N, N, 8, N, 0, 5, 4};
+		matrix[5] = new int[] {N, N, N, 4, 5, 0, 6};
+		matrix[6] = new int[] {2, 3, N, N, 4, 6, 0};
 
 		//创建 Graph 对象
 		Graph graph = new Graph(vertex.length, matrix, vertex);
@@ -24,7 +34,6 @@ public class FloydAlgorithm {
 		graph.floyd();
 		graph.show();
 	}
-
 }
 
 // 创建图
@@ -36,12 +45,9 @@ class Graph {
 	// 构造器
 	/**
 	 *
-	 * @param length
-	 *            大小
-	 * @param matrix
-	 *            邻接矩阵
-	 * @param vertex
-	 *            顶点数组
+	 * @param length 大小
+	 * @param matrix 邻接矩阵
+	 * @param vertex 顶点数组
 	 */
 	public Graph(int length, int[][] matrix, char[] vertex) {
 		this.vertex = vertex;
@@ -70,9 +76,7 @@ class Graph {
 			}
 			System.out.println();
 			System.out.println();
-
 		}
-
 	}
 
 	//弗洛伊德算法, 比较容易理解，而且容易实现
